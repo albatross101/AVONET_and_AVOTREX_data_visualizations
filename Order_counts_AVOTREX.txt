@@ -1,0 +1,31 @@
+Order counts of Extinct Birds: order
+Passeriformes          136
+Gruiformes             111
+Anseriformes            49
+Columbiformes           43
+Strigiformes            35
+Psittaciformes          33
+Charadriiformes         33
+Accipitriformes         29
+Galliformes             25
+Pelecaniformes          21
+Falconiformes           16
+Cathartiformes          15
+Procellariiformes       12
+Dinornithiformes         9
+Caprimulgiformes         7
+Cuculiformes             5
+Suliformes               4
+Struthioniformes         4
+Ciconiiformes            4
+Podicipediformes         4
+Aepyornithiformes        3
+Coraciiformes            2
+Sphenisciformes          2
+Cariamiformes            2
+Bucerotiformes           2
+Piciformes               1
+Gastornithiformes        1
+Phoenicopteriformes      1
+Eurypygiformes           1
+Name: count, dtype: int64
