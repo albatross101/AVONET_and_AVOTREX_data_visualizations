@@ -32,10 +32,3 @@ with open("Order_counts_AVOTREX.txt", "a") as file:
     file.write("Order counts of Extinct Birds: " + str(order_counts) + "\n")
     file.write("Order proportions of Extinct Birds: " + str(order_proportions_AVOTREX) + "\n")
 
-plt.bar(order_proportions_AVOTREX.index, order_proportions_AVOTREX.values)
-plt.xlabel("Order")
-plt.ylabel("Proportion")
-plt.title("Order Proportions of Extinct Birds")
-plt.xticks(rotation=90)
-plt.tight_layout()
-plt.show()
