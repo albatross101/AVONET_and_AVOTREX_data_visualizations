@@ -12,6 +12,7 @@ plt.ylabel("Proportion")
 plt.title("Order Proportions of Extinct Birds")
 plt.xticks(rotation=90)
 plt.tight_layout()
+plt.savefig("output/AVOTREX_Order_Proportions.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 #Flight ability counts
@@ -22,6 +23,7 @@ plt.ylabel("Number of Species")
 plt.title("Flight Ability of Extinct Birds")
 plt.tight_layout()
 plt.legend()
+plt.savefig("output/AVOTREX_Flight_Ability_Counts.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 #Endemicity
@@ -31,4 +33,5 @@ plt.xlabel("Endemicity")
 plt.ylabel("Number of Species")
 plt.title("Endemicity of Extinct Birds")
 plt.tight_layout()
+plt.savefig("output/AVOTREX_Endemicity_Counts.png", dpi=300, bbox_inches="tight")
 plt.show()
