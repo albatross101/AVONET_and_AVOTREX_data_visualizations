@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv("data/AVONET.csv")
-df_AVONET_IUCN = pd.read_csv("data/AVONET_IUCN.csv")
+df = pd.read_csv("./data/AVONET.csv")
+df_AVONET_IUCN = pd.read_csv("./data/AVONET_IUCN.csv")
 df_AVONET_IUCN["RL Category"] = df_AVONET_IUCN["RL Category"].str.strip()
 
 
@@ -16,7 +16,7 @@ plt.ylabel("Proportion")
 plt.title("Order Proportions of Living Birds")
 plt.xticks(rotation=90)
 plt.tight_layout()
-plt.savefig("output/AVONET_Order_Proportions.png", dpi=300, bbox_inches="tight")
+plt.savefig("./output/AVONET_Order_Proportions.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 IUCN_proportions = df_AVONET_IUCN["RL Category"].value_counts(normalize=True)
@@ -27,5 +27,5 @@ plt.ylabel("Proportion")
 plt.title("IUCN Red List Category Proportions of Living Birds")
 plt.xticks(rotation=90)
 plt.tight_layout()
-plt.savefig("output/AVONET_IUCN_Proportions.png", dpi=300, bbox_inches="tight")
+plt.savefig("./output/AVONET_IUCN_Proportions.png", dpi=300, bbox_inches="tight")
 plt.show()
