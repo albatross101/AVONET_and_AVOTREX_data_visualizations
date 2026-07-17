@@ -5,6 +5,7 @@ df_AVONET = pd.read_csv("./data/AVONET.csv") #Reads in the AVONET spreadsheet
 df_BirdLife = pd.read_csv("./data/BirdLife_Data.csv") #Reads in the BirdLife spreadsheet
 species_and_IUCN = df_BirdLife[["Scientific name", "RL Category"]] #Makes a new dataframe with the scientific name and the IUCN Red List Category
 df_AVONET_IUCN = pd.merge(df_AVONET, species_and_IUCN, left_on="Species1", right_on="Scientific name", how="left") #Merges the AVONET dataframe with the species_and_IUCN dataframe on the Species1 column and the Scientific_name column
+df_AVONET_IUCN = df_AVONET_IUCN.drop(columns=["Scientific name"]) #Remove the duplicate scientific name column
 df_AVONET_IUCN.to_csv("./data/AVONET_IUCN.csv", index=False) #Saves the dataframe to a csv file
 
 #Test to see how many species are missing IUCN rating
