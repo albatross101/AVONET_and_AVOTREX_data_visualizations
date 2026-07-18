@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
 df_AVONET_IUCN = pd.read_csv("./data/AVONET_IUCN.csv") #Reads in the AVONET_IUCN spreadsheet
-df = df_AVONET_IUCN.drop(columns=["Total.individuals", "Female", "Male", "Unknown", "Max.Latitude", "Min.Latitude", "Centroid.Longitude", "Centroid.Latitude", "Range.Size"]).select_dtypes(include=[np.number]).dropna() #Selects the columns with only numbers and removes the rows with missing values
+df = df_AVONET_IUCN.drop(columns=["Total.individuals", "Complete.measures", "Sequence", "Female", "Male", "Unknown", "Max.Latitude", "Min.Latitude", "Centroid.Longitude", "Centroid.Latitude", "Range.Size"]).select_dtypes(include=[np.number]).dropna() #Selects the columns with only numbers and removes the rows with missing values
 IUCN_categories = df_AVONET_IUCN.loc[df.index, "RL Category"]
 scaler = StandardScaler()
 scaler.fit(df)
