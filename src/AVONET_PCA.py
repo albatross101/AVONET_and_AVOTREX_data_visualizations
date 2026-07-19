@@ -41,7 +41,7 @@ df_comp = pd.DataFrame(pca.components_,columns=df.columns,index=["PC1","PC2", "P
 plt.figure(figsize=(16, 10))
 sns.heatmap(df_comp, annot=True, cmap="plasma") #Plots the PCA components heatmap
 plt.title("AVONET PCA Components Heatmap")
-plt.savefig("./output/AVONET_PCA_Components.png", dpi=300, bbox_inches="tight")
+plt.savefig("./output/AVONET_PCA_Components_Heatmap.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 #Plot the PCA again but without the LC category
