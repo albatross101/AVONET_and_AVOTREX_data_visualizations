@@ -6,14 +6,14 @@ import numpy as np
 
 #Process and fit the data
 df = pd.read_csv("./data/AVONET_IUCN.csv") #Read the AVONET_IUCN csv file
-model = smf.glm(formula="Q('Range.Size') ~ Q('Hand-Wing.Index') + Q('Mass')", data=df, family=sm.families.Gamma(link=sm.families.links.Log())) #Use HWI and mass as predictors and range size as the response
+model = smf.glm(formula="np.log(Q('Range.Size')) ~ Q('Hand-Wing.Index') + np.log(Q('Mass'))", data=df, family=sm.families.Gaussian()) #Use HWI and mass as predictors and range size as the response
 results = model.fit() #Fit the model
 print(results.summary())
 
 #Plot the data and model
 hwi_ordered = np.linspace(df['Hand-Wing.Index'].min(), df['Hand-Wing.Index'].max(), 200)
 pred_hwi = pd.DataFrame({'Hand-Wing.Index': hwi_ordered, 'Mass': df['Mass'].mean()})
-pred_range1 = results.predict(pred_hwi)
+pred_range1 = np.exp(results.predict(pred_hwi))
 plt.scatter(df['Hand-Wing.Index'], df['Range.Size'])
 plt.plot(hwi_ordered, pred_range1, color='red')
 plt.xlabel('Hand-Wing Index')
@@ -25,7 +25,7 @@ plt.show()
 
 mass_ordered = np.linspace(df['Mass'].min(), df['Mass'].max(), 200)
 pred_mass = pd.DataFrame({'Mass': mass_ordered, 'Hand-Wing.Index': df['Hand-Wing.Index'].mean()})
-pred_range2 = results.predict(pred_mass)
+pred_range2 = np.exp(results.predict(pred_mass))
 plt.scatter(df['Mass'], df['Range.Size'])
 plt.plot(mass_ordered, pred_range2, color='red')
 plt.xlabel('Mass (g)')
