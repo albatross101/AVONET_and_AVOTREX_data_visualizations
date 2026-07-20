@@ -30,7 +30,7 @@ plt.figure(figsize=(8, 6)) #Creates a figure with a width of 8 inches and a heig
 sns.scatterplot(x=x_pca[:, 0], y=x_pca[:, 1], hue=IUCN_categories, hue_order=["LC","NT", "VU", "EN", "CR", "EW", "EX"], palette="viridis") #Plots the PCA scatter plot
 plt.xlabel("Principal Component 1")
 plt.ylabel("Principal Component 2")
-plt.ylim(-8, 11)
+plt.ylim(-8.5, 11)
 plt.xlim(-3, 27)
 plt.title("AVONET PCA")
 plt.savefig("./output/AVONET_PCA.png", dpi=300, bbox_inches="tight")
