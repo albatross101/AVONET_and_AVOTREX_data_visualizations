@@ -2,6 +2,7 @@ import pandas as pd
 import statsmodels.formula.api as smf
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
+import scipy.stats as stats
 import numpy as np
 
 #Process and fit the data
@@ -22,6 +23,9 @@ plt.yscale('log')
 plt.title('Range Size vs Hand-Wing Index')
 plt.savefig("./output/AVONET_GLM_RangeSize_vs_HWI.png", dpi=300, bbox_inches="tight")
 plt.show()
+
+statistic, p_value = stats.shapiro(df['Hand-Wing.Index'].dropna())
+print(f"Shapiro-Wilk test statistic: {statistic}, p-value: {p_value}")
 
 mass_ordered = np.linspace(df['Mass'].min(), df['Mass'].max(), 200) #Creates an array of 200 values between the minimum and maximum mass so we connect the data points in order from least to greatest
 pred_mass = pd.DataFrame({'Mass': mass_ordered, 'Hand-Wing.Index': df['Hand-Wing.Index'].mean()}) #Creates a dataframe with the mass values and the mean HWI

@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import plotly.express as px
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
@@ -59,3 +60,11 @@ plt.show()
 df_PCA = pd.DataFrame(x_pca, columns=["PC1", "PC2", "PC3", "PC4", "PC5", "PC6", "PC7", "PC8", "PC9", "PC10", "PC11"], index=df.index)
 merged_df = pd.merge(df_AVONET_IUCN, df_PCA, left_index=True, right_index=True)
 merged_df.to_csv("./data/AVONET_IUCN_PCA_values.csv")
+
+#Make a 3D scatter plot of the PCA
+fig = px.scatter_3d(merged_df, x="PC1", y="PC2", z="PC3", color="RL Category", color_discrete_sequence=px.colors.qualitative.Prism, hover_name="Species1")
+fig.update_traces(marker=dict(size=2))#Make the dots smaller
+fig.update_layout(title="AVONET PCA 3D Plot")
+fig.write_image("./output/AVONET_PCA_3D_Plot.png", width=2000, height=2000)
+fig.write_html("./output/AVONET_PCA_3D_Plot.html")
+fig.show()
