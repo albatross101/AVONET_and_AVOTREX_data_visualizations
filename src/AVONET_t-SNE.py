@@ -25,7 +25,7 @@ sns.scatterplot(x=tsne_features[:,0], y=tsne_features[:,1], hue=IUCN_categories,
 plt.title("t-SNE of AVONET IUCN Data by IUCN Category")
 plt.xlabel("t-SNE Feature 1")
 plt.ylabel("t-SNE Feature 2")
-plt.savefig("./output/AVONET_t-SNE.png", dpi=300, bbox_inches="tight")
+plt.savefig("./output/AVONET_t-SNE_IUCN.png", dpi=300, bbox_inches="tight")
 
 fig = plt.figure(figsize=(10, 10))
 sns.scatterplot(x=tsne_features[:,0], y=tsne_features[:,1], hue=trophic_niches, palette="viridis")
@@ -53,6 +53,6 @@ fig1 = px.scatter(x=tsne_features[:,0], y=tsne_features[:,1], color=IUCN_categor
 fig1.update_layout(title="t-SNE of AVONET IUCN Data")
 fig1.update_xaxes(title="t-SNE Feature 1")
 fig1.update_yaxes(title="t-SNE Feature 2")
-fig1.write_html("./output/AVONET_t-SNE.html")
+fig1.write_html("./output/AVONET_t-SNE_IUCN.html")
 fig1.show()
 
